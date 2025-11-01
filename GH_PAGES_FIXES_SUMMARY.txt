@@ -1,0 +1,14 @@
+ملخص تعديلات GitHub Pages
+===========================
+Project root: /mnt/data/workdir
+
+- Updated base in vite.config.ts to './'.
+- Router changes applied in files: ['src/App.tsx'] 
+- Updated package.json with postbuild to create 404.html.
+- Added workflow: .github/workflows/deploy.yml
+- Added ErrorBoundary and attempted to wrap App: ['src/main.tsx', 'src/App.tsx'] 
+- Added README_DEPLOY.md
+
+قُم بتشغيل:
+  npm ci && npm run build
+ثم ادفع إلى الفرع main.

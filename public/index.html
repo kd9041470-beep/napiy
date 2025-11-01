@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    
+    <title>مدرسة النبي اليتيم - بناء قادة المستقبل</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ------------------------------------ */
+        /* التنسيق الأساسي والألوان */
+        /* ------------------------------------ */
+
+        :root {
+            --primary-blue: #0A3D62;
+            --secondary-blue: #2e86de;
+            --light-gray: #F4F4F4;
+            --medium-gray: #CCCCCC;
+            --white: #FFFFFF;
+            --text-color: #333333;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            color: var(--text-color);
+            background-color: var(--white);
+            line-height: 1.6;
+            text-align: right;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--secondary-blue);
+            transition: color 0.3s;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* ------------------------------------ */
+        /* الأزرار (Buttons) */
+        /* ------------------------------------ */
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            border-radius: 5px;
+            font-weight: 700;
+            text-align: center;
+            transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+
+        .btn-primary {
+            background-color: var(--secondary-blue);
+            color: var(--white);
+            border: 2px solid var(--secondary-blue);
+        }
+
+        .btn-primary:hover {
+            background-color: #2471c4; 
+            transform: translateY(-3px); 
+            box-shadow: 0 8px 15px rgba(46, 134, 222, 0.4); 
+        }
+
+        .btn-large {
+            padding: 12px 35px; 
+            font-size: 1.1em;
+            margin-top: 20px;
+        }
+
+
+        /* ------------------------------------ */
+        /* الرأس وشريط التنقل (Header & Nav) */
+        /* ------------------------------------ */
+        header {
+            background-color: var(--primary-blue);
+            color: var(--white);
+            padding: 15px 0;
+            border-bottom: 3px solid var(--secondary-blue);
+            animation: fadeInDown 1s ease-out;
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 1.8em;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-right: 25px;
+        }
+
+        nav ul li a {
+            color: var(--white);
+            font-weight: 400;
+            position: relative;
+        }
+        
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            right: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--light-gray);
+            transition: width 0.3s;
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+        
+        /* ------------------------------------ */
+        /* قسم الترحيب الرئيسي (Hero Section) */
+        /* ------------------------------------ */
+        .hero-section {
+            background-color: var(--white);
+            padding: 50px 0; 
+            text-align: center; 
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero-split {
+            display: flex;
+            flex-direction: row-reverse; 
+            align-items: center;
+            text-align: right;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .hero-text {
+            flex: 1; 
+            min-width: 50%; 
+            padding-left: 20px;
+        }
+
+        .hero-image-container {
+            flex: 1; 
+            max-width: 450px; 
+            text-align: left; 
+        }
+        
+        .hero-image {
+            width: 100%; 
+            height: auto; 
+            margin: 0; 
+            border-radius: 10px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            border: 5px solid var(--secondary-blue);
+            display: block; 
+            animation: zoomIn 1s ease-out forwards; 
+        }
+
+        .hero-content h1 {
+            font-size: 2.2em; 
+            color: var(--primary-blue);
+            margin-bottom: 10px; 
+            animation: fadeInUp 1s ease-out 0.5s backwards; 
+        }
+
+        .hero-content p {
+            font-size: 1em; 
+            color: #666;
+            margin-bottom: 15px; 
+            animation: fadeInUp 1s ease-out 0.7s backwards; 
+        }
+
+        .hero-section .btn-large {
+            display: inline-block;
+            animation: fadeInUp 1s ease-out 0.9s backwards; 
+        }
+        
+        /* ------------------------------------ */
+        /* الأقسام الداخلية (Sections) */
+        /* ------------------------------------ */
+        section {
+            padding: 80px 0;
+            opacity: 0; 
+            transform: translateY(20px); 
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out; 
+        }
+
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        h2 {
+            font-size: 2em;
+            color: var(--primary-blue);
+            margin-bottom: 40px;
+            text-align: center;
+            animation: fadeIn 1s ease-out 0.2s backwards; 
+        }
+        
+        .gray-bg {
+            background-color: var(--light-gray);
+        }
+
+        .blue-bg {
+            background-color: var(--primary-blue);
+            color: var(--white);
+        }
+
+        /* قسم البرامج - تأثيرات البطاقات */
+        .program-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            text-align: center.
+        }
+
+        .program-card {
+            background-color: var(--white);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            border-top: 5px solid var(--secondary-blue);
+            transition: transform 0.4s, box-shadow 0.4s;
+            opacity: 0; 
+            transform: translateY(20px); 
+        }
+
+        .program-card.visible { 
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .program-card:hover {
+            transform: translateY(-8px) rotate(1deg); 
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+        }
+        
+        .program-card h3 {
+            color: var(--primary-blue);
+            margin-bottom: 15px;
+        }
+
+        /* ------------------------------------ */
+        /* قسم التواصل (Contact Section) - التنسيق الجديد */
+        /* ------------------------------------ */
+
+        .contact-content {
+            display: flex;
+            flex-direction: row; /* النص يمين والخريطة يسار (الترتيب الطبيعي للـ RTL) */
+            gap: 40px;
+            align-items: flex-start; /* محاذاة العناصر للأعلى */
+            flex-wrap: wrap; /* للسماح بالعناصر بالانتقال لسطر جديد في الهواتف */
+        }
+
+        .contact-details {
+            flex: 1; /* يأخذ المساحة المتبقية */
+            min-width: 300px;
+            margin-bottom: 30px;
+            text-align: right;
+        }
+        
+        .contact-details h2, .contact-details p, .contact-details a {
+            color: var(--white);
+        }
+        
+        .contact-map {
+            flex: 1; /* يأخذ المساحة المتبقية */
+            min-width: 300px;
+            height: 450px; /* تحديد ارتفاع للحاوية */
+            border-radius: 10px;
+            overflow: hidden; /* لإخفاء أي زوائد للخريطة */
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            border: 3px solid var(--secondary-blue);
+        }
+
+        .contact-map iframe {
+            width: 100%;
+            height: 100%;
+            display: block.
+        }
+
+        /* ------------------------------------ */
+        /* تذييل الصفحة (Footer) */
+        /* ------------------------------------ */
+        footer {
+            background-color: var(--primary-blue);
+            color: var(--white);
+            text-align: center;
+            padding: 20px 0;
+            font-size: 0.9em;
+            border-top: 1px solid var(--secondary-blue);
+            animation: fadeIn 1s ease-out 1.2s backwards; 
+        }
+
+
+        /* ------------------------------------ */
+        /* استجابة الهاتف (Media Query for Responsiveness) */
+        /* ------------------------------------ */
+        @media (max-width: 768px) {
+            .hero-split {
+                flex-direction: column; 
+                text-align: center; 
+            }
+
+            .hero-text {
+                min-width: 100%;
+                padding-left: 0;
+            }
+
+            .hero-image-container {
+                max-width: 90%; 
+                order: -1; 
+                text-align: center; 
+                margin-bottom: 20px;
+            }
+            
+            /* تنسيق قسم التواصل على الهواتف */
+            .contact-content {
+                flex-direction: column; /* ترتيب عمودي */
+            }
+
+            .contact-details, .contact-map {
+                min-width: 100%;
+                text-align: center;
+            }
+        }
+
+        /* ------------------------------------ */
+        /* Keyframes for Animations */
+        /* ------------------------------------ */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes zoomIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <div class="logo">مدرسة النبي اليتيم</div>
+            <nav>
+                <ul>
+                    <li><a href="#about">رسالتنا</a></li>
+                    <li><a href="#programs">برامجنا</a></li>
+                    <li><a href="#">التسجيل</a></li>
+                    <li><a href="#contact">اتصل بنا</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero-section">
+        <div class="hero-content">
+            
+            <div class="hero-split">
+                <div class="hero-image-container">
+                    <img src="https://image.pollinations.ai/prompt/a%2014-year-old%20boy%20student%20holding%20books%20and%20wearing%20glasses%20in%20a%20school%20library?width=1024&height=1024&seed=225" alt="طالب بعمر 14 سنة يحمل كتباً ويرتدي نظارة" class="hero-image">
+                </div>
+                
+                <div class="hero-text">
+                    <h1>مدرسة النبي اليتيم: حيث نبني **قادة المستقبل** برعاية ودفء.</h1>
+                    <p>انطلاقاً من شعارنا "مرضاة ربنا، صحبة نبينا، خدمة وطننا"، نكفل تربوياً واجتماعياً لنرسم البسمة ونغرس الطمأنينة في نفوس أبنائنا.</p>
+                    <a href="#" class="btn btn-primary btn-large">انضم لنا</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="about" class="mission-section gray-bg">
+        <div class="container">
+            <h2>🎯 أكثر من 16 عامًا من العطاء: رسالة المدرسة والجمعية</h2>
+            <p>تأسست جمعية كافل اليتيم الولائية تيارت وهدفنا الأسمى هو **رعاية أبنائنا وبناتنا من الأيتام وكفالتهم تربوياً واجتماعياً** قصد رسم البسمة وإدخال السعادة والطمأنينة بنفوسهم.</p>
+            <p class="slogan">شعارنا: "مرضاة ربنا، صحبة نبينا، خدمة وطننا"</p>
+        </div>
+    </section>
+
+    <section id="programs" class="programs-section">
+        <div class="container">
+            <h2>✨ برامجنا التخصصية: بناء الشخصية والتفوق العلمي</h2>
+            <div class="program-grid">
+                <div class="program-card">
+                    <h3>النشاط التربوي</h3>
+                    <p>توفير البيئة التعليمية الممتازة والتوجيه الأكاديمي، لضمان نشأة سليمة ومستقبل مشرق.</p>
+                </div>
+                <div class="program-card">
+                    <h3>النشاط الاجتماعي</h3>
+                    <p>برامج لتطوير العلاقات الاجتماعية واكتساب الخبرات التي تساهم في بناء شخصيتهم وتحقيق ذواتهم.</p>
+                </div>
+                <div class="program-card">
+                    <h3>النشاط العلمي</h3>
+                    <p>اكتشاف قدرات وميولات أبنائنا العلمية وتنميتها وتوجيهها لخدمة المجتمع والفرد بأفضل شكل.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact-section blue-bg">
+        <div class="container">
+            <h2>📞 للتواصل والدعم</h2>
+            
+            <div class="contact-content">
+                <div class="contact-details">
+                    <p><strong>العنوان:</strong> حي دبي، عمارة 04 ب، المدخل 05، تيارت، الرمز البريدي 14000</p>
+                    <p><strong>البريد الإلكتروني:</strong> <a href="mailto:kafilyatim-t@hotmail.com">kafilyatim-t@hotmail.com</a></p>
+                    <p><strong>الهاتف:</strong> 0771594343</p>
+                    <a href="#" target="_blank" class="btn btn-primary btn-large">تبرع الآن لدعم الأيتام</a>
+                </div>
+                
+                <div class="contact-map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3254.3539762859864!2d1.337301025381165!3d35.34686064827144!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1286d19df50dbbb1%3A0xbdf0374525e632a3!2z2YXYr9ix2LPYqSDYp9mE2YbYqNmKINin2YTZitiq2YrZhSAiINis2YXYudmK2Kkg2YPYp9mB2YQg2KfZhNmK2KrZitmFINin2YTZiNmE2KfYptmK2Kkg2KrZitin2LHYqg!5e0!3m2!1sar!2sdz!4v1761916750138!5m2!1sar!2sdz" 
+                            width="600" 
+                            height="450" 
+                            style="border:0;" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 مدرسة النبي اليتيم. كافة الحقوق محفوظة. <a href="#" target="_blank">رابط الجمعية</a></p>
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript for scroll reveal effect
+        document.addEventListener('DOMContentLoaded', () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        // For program cards, add animation with staggered delay
+                        if (entry.target.classList.contains('programs-section')) {
+                            const cards = entry.target.querySelectorAll('.program-card');
+                            cards.forEach((card, index) => {
+                                card.style.animation = `fadeInUp 0.6s ease-out ${index * 0.2 + 0.3}s forwards`;
+                                card.classList.add('visible'); // Ensure visibility even if JS fails
+                            });
+                        }
+                    } else {
+                        // Optional: remove 'visible' class if you want elements to disappear when scrolling away
+                        // entry.target.classList.remove('visible');
+                    }
+                });
+            }, {
+                threshold: 0.1 // Trigger when 10% of the element is visible
+            });
+
+            document.querySelectorAll('section, .program-card').forEach(section => {
+                observer.observe(section);
+            });
+
+            // Adjust nav links to scroll smoothly to sections
+            document.querySelectorAll('nav ul li a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>

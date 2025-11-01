@@ -1,0 +1,100 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 210 25% 98%;
+    --foreground: 215 25% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 215 25% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 25% 15%;
+
+    --primary: 210 80% 48%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 150 60% 50%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 210 20% 95%;
+    --muted-foreground: 215 15% 45%;
+
+    --accent: 25 85% 60%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 70% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 215 20% 88%;
+    --input: 215 20% 88%;
+    --ring: 210 80% 48%;
+
+    --radius: 0.75rem;
+
+    --success: 150 60% 50%;
+    --warning: 35 95% 60%;
+    --info: 200 90% 55%;
+
+    --gradient-primary: linear-gradient(135deg, hsl(210 80% 48%), hsl(200 90% 55%));
+    --gradient-warm: linear-gradient(180deg, hsl(210 25% 98%), hsl(210 20% 95%));
+    
+    --shadow-sm: 0 1px 2px 0 hsl(215 25% 15% / 0.05);
+    --shadow-md: 0 4px 6px -1px hsl(215 25% 15% / 0.1);
+    --shadow-lg: 0 10px 15px -3px hsl(215 25% 15% / 0.1);
+  }
+
+  .dark {
+    --background: 215 25% 12%;
+    --foreground: 210 25% 95%;
+
+    --card: 215 25% 15%;
+    --card-foreground: 210 25% 95%;
+
+    --popover: 215 25% 15%;
+    --popover-foreground: 210 25% 95%;
+
+    --primary: 210 80% 55%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 150 60% 45%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 215 20% 20%;
+    --muted-foreground: 215 15% 65%;
+
+    --accent: 25 85% 55%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 215 20% 25%;
+    --input: 215 20% 25%;
+    --ring: 210 80% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Cairo', 'Tajawal', system-ui, -apple-system, sans-serif;
+    direction: rtl;
+  }
+
+  html {
+    direction: rtl;
+  }
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&family=Tajawal:wght@400;500;700&display=swap');
