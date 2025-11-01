@@ -21,7 +21,7 @@ const Login = () => {
     if (!/^[A-Z]{2}\d{2}$/i.test(code)) {
       toast({
         title: 'خطأ',
-        description: 'يجب أن يكون الكود مكون من حرفين ورقمين (مثال: AD01)',
+        description: 'يجب أن يكون الكود مكون من حرفين ورقمين (مثال: BD01)',
         variant: 'destructive',
       });
       return;
@@ -68,7 +68,7 @@ const Login = () => {
                 dir="ltr"
               />
               <p className="text-xs text-muted-foreground text-center">
-                حرفان + رقمان (مثال: SX58، AQ88، WX85)
+                حرفان + رقمان (مثال: QX58، YQ88، <VX85)
               </p>
             </div>
 
