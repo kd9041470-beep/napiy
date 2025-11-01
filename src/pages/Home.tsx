@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 const Home = () => {
     
@@ -44,7 +45,7 @@ const Home = () => {
         styleElement.type = 'text/css';
         styleElement.innerHTML = animationStyles;
         document.head.appendChild(styleElement);
-
+        
         
         // 3. تفعيل تأثيرات Scroll Reveal بواسطة Intersection Observer
         const observer = new IntersectionObserver((entries) => {
@@ -104,8 +105,8 @@ const Home = () => {
                         <a href="#about" className="hover:text-[#2e86de] transition duration-200">رسالتنا</a>
                         <a href="#programs" className="hover:text-[#2e86de] transition duration-200">برامجنا</a>
                         <a href="#contact" className="hover:text-[#2e86de] transition duration-200">اتصل بنا</a>
-                        {/* رابط التسجيل الفعلي */}
-                        <a href="/login" className="bg-[#2e86de] text-white px-5 py-2 rounded-full font-semibold hover:bg-[#2471c4] transition shadow-md">التسجيل</a>
+                        {/* رابط التسجيل الفعلي — تم تغييره إلى Link */}
+                        <Link to="/login" className="bg-[#2e86de] text-white px-5 py-2 rounded-full font-semibold hover:bg-[#2471c4] transition shadow-md">التسجيل</Link>
                     </nav>
                 </div>
             </header>
@@ -126,8 +127,8 @@ const Home = () => {
                                 انطلاقاً من شعارنا "مرضاة ربنا، صحبة نبينا، خدمة وطننا"، نكفل تربوياً واجتماعياً لنرسم البسمة ونغرس الطمأنينة في نفوس أبنائنا.
                             </p>
                             
-                            {/* رابط الانضمام الفعلي */}
-                            <a href="/login" className="px-8 py-3 rounded-full bg-[#2e86de] text-white text-lg font-semibold shadow-lg hover:bg-[#2471c4] transition transform hover:scale-105">انضم لنا الآن</a>
+                            {/* رابط الانضمام الفعلي — تم تغييره إلى Link */}
+                            <Link to="/login" className="px-8 py-3 rounded-full bg-[#2e86de] text-white text-lg font-semibold shadow-lg hover:bg-[#2471c4] transition transform hover:scale-105">انضم لنا الآن</Link>
                         </div>
 
                         {/* الصورة (تظهر على اليسار) */}
@@ -199,31 +200,23 @@ const Home = () => {
                             </div>
                             
                             <div className="contact-map lg:w-1/2 w-full h-96 rounded-xl overflow-hidden shadow-2xl border-4 border-[#2e86de]">
-                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3254.3539762859864!2d1.337301025381165!3d35.34686064827144!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1286d19df50dbbb1%3A0xbdf0374525e632a3!2z2YXYr9ix2LPYqSDYp9mE2YbYqNmKINin2YTZitiq2YrZhSAiINis2YXYudmK2Kkg2YPYp9mB2YQg2KfZhNmK2KrZitmFINin2YTZiNmE2KfYptmK2Kkg2KrZitin2LHYqg!5e0!3m2!1sar!2sdz!4v1761916750138!5m2!1sar!2sdz" 
-                                        width="100%" 
-                                        height="100%" 
-                                        style={{border: 0}} 
-                                        allowFullScreen={true} 
-                                        loading="lazy" 
-                                        referrerPolicy="no-referrer-when-downgrade">
-                                </iframe>
+                                <iframe
+                                  title="map"
+                                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3254.353!2d0!3d0!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2z0JDQvtGB0YLQstCw0Y8g0LI!5e0!3m2!1sar!2sdz!4v0000000000000"
+                                  width="100%"
+                                  height="100%"
+                                  style={{ border: 0 }}
+                                  allowFullScreen
+                                  loading="lazy"
+                                />
                             </div>
                         </div>
                     </div>
                 </section>
 
             </main>
-
-            {/* ============== تذييل الصفحة (Footer) ============== */}
-            <footer className="border-t py-6 text-center text-md text-slate-500 bg-white">
-                <div className="container mx-auto px-4">
-                    © {new Date().getFullYear()} مدرسة النبي اليتيم. كافة الحقوق محفوظة. 
-                    {/* رابط الجمعية الوهمي */}
-                    <a href="#" target="_blank" className="text-[#0A3D62] hover:underline mr-2"> | رابط الجمعية</a>
-                </div>
-            </footer>
         </div>
     );
-};
+}
 
 export default Home;
