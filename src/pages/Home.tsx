@@ -93,10 +93,6 @@ const Home = () => {
     }, []);
 
 
-    // الرابط الذي سيتم استخدامه لفتح تطبيق الخرائط مع مسار التنقل (لزر اذهب للموقع)
-    // *افتراض: الرابط في النهاية هو https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3254.3539762859864!2d1.337301025381165!3d35.34686064827144!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1286d19df50dbbb1%3A0xbdf0374525e632a3!2z2YXYr9ix2LPYqSDYp9mE2YbYqNmKINin2YTZitiq2YrZhSAiINis2YXYudmK2Kkg2YPYp9mB2YQg2KfZhNmK2KrZitmFINin2YTZiNmE2KfYptmK2Kkg2KrZitin2LHYqg!5e0!3m2!1sar!2sdz!4v1762050798554!5m2!1sar!2sdz
-    const mapsNavigationLink = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3254.3539762859864!2d1.337301025381165!3d35.34686064827144!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1286d19df50dbbb1%3A0xbdf0374525e632a3!2z2YXYr9ix2LPYqSDYp9mE2YbYqNmKINin2YTZitiq2YrZhSAiINis2YXYudmK2Kkg2YPYp9mB2YQg2KfZhNmK2KrZitmFINin2YTZiNmE2KfYptmK2Kkg2KrZitin2LHYqg!5e0!3m2!1sar!2sdz!4v1762050798554!5m2!1sar!2sdz'; 
-
     return (
         // تم تعيين الاتجاه RTL بشكل صحيح في العنصر الأب
         <div dir="rtl" className="min-h-screen bg-white text-slate-800">
@@ -193,65 +189,55 @@ const Home = () => {
                                 <p className="mb-4 text-lg"><strong>البريد الإلكتروني:</strong> <a href="mailto:kafilyatim-t@hotmail.com" className="text-[#2e86de] font-semibold hover:underline">kafilyatim-t@hotmail.com</a></p>
                                 <p className="mb-8 text-lg"><strong>الهاتف:</strong> 0771594343</p>
                                 
-                                {/* **تم التعديل هنا: تحديث رابط "اذهب للموقع" لفتح مسار التنقل** */}
-                                <a href={mapsNavigationLink} 
+                                {/* زر الموقع/الخريطة - الرابط صار يفتح خرائط غوغل مع مسار الذهاب */}
+                                <a 
+                                    href="https://www.google.com/maps/dir/?api=1&destination=35.34686064827144,1.337301025381165&travelmode=driving"
                                     target="_blank" 
                                     className="px-8 py-3 rounded-full bg-[#2e86de] text-white text-lg font-semibold shadow-xl hover:bg-[#2471c4] transition transform hover:scale-105"
                                     rel="noopener noreferrer"
+                                    aria-label="فتح المسار إلى موقع مدرسة النبي اليتيم"
                                 >
                                     اذهب للموقع
                                 </a>
                             </div>
                             
-                            {/* **تم إكمال كود الخريطة هنا** */}
                             <div className="contact-map lg:w-1/2 w-full h-96 rounded-xl overflow-hidden shadow-2xl border-4 border-[#2e86de]">
                                 <iframe
-                                  title="map-contact"
+                                  title="map"
                                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3254.353!2d0!3d0!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2z0JDQvtGB0YLQstCw0Y8g0LI!5e0!3m2!1sar!2sdz!4v0000000000000"
                                   width="100%"
                                   height="100%"
                                   style={{ border: 0 }}
-                                  allowFullScreen=""
+                                  allowFullScreen
                                   loading="lazy"
-                                  referrerPolicy="no-referrer-when-downgrade"
-                                ></iframe>
+                                />
                             </div>
                         </div>
                     </div>
                 </section>
-                
-                {/* **تم الإضافة هنا: الخريطة المطلوبة في آخر الصفحة** */}
-                <section className="map-section py-10 bg-white">
-                    <div className="container mx-auto px-4">
-                        <h3 className="text-3xl font-bold mb-6 text-center text-[#0A3D62]">موقعنا على الخريطة</h3>
-                        <div className="w-full rounded-xl overflow-hidden shadow-2xl border-4 border-gray-300">
-                            {/* استخدام iframe الذي تم توفيره في السؤال */}
-                            <iframe 
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3254.3539762859864!2d1.337301025381165!3d35.34686064827144!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1286d19df50dbbb1%3A0xbdf0374525e632a3!2z2YXYr9ix2LPYqSDYp9mE2YbYqNmKINin2YTZitiq2YrZhSAiINis2YXYudmK2Kkg2YPYp9mB2YQg2KfZhNmK2KrZitmFINin2YTZiNmE2KfYptmK2Kkg2KrZitin2LHYqg!5e0!3m2!1sar!2sdz!4v1762050798554!5m2!1sar!2sdz" 
-                                width="100%" /* تم تغيير العرض إلى 100% ليناسب الحاوية */
-                                height="450" 
-                                style={{ border: 0 }} 
-                                allowFullScreen="" 
-                                loading="lazy" 
-                                referrerPolicy="no-referrer-when-downgrade"
-                                title="full-page-map"
-                            ></iframe>
-                        </div>
-                    </div>
-                </section>
-                {/* **نهاية الإضافة** */}
 
+                {/* ============== خريطة الموقع (في آخر الصفحة) ============== */}
+                <section id="location-map" className="py-12 bg-white">
+                  <div className="container mx-auto px-4">
+                    <h3 className="text-2xl font-bold mb-6 text-center text-[#0A3D62]">موقعنا على الخريطة</h3>
+                    <div className="rounded-xl overflow-hidden shadow-2xl border-4 border-[#2e86de]">
+                      <iframe
+                        title="map-location"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3254.3539762859864!2d1.337301025381165!3d35.34686064827144!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1286d19df50dbbb1%3A0xbdf0374525e632a3!2z2YXYr9ix2LPYqSDYp9mE2YbYqNmKINin2YTZitiq2YrZhSAiINis2YXYudmK2Kkg2YPYp9mB2YQg2KfZhNmK2KrZitmFINin2YTZiNmE2KfYptmK2Kkg2KrZitin2LHYqg!5e0!3m2!1sar!2sdz!4v1762050798554!5m2!1sar!2sdz"
+                        width="100%"
+                        height="450"
+                        style={{ border: 0 }}
+                        allowFullScreen
+                        loading="lazy"
+                        referrerPolicy="no-referrer-when-downgrade"
+                      />
+                    </div>
+                  </div>
+                </section>
 
             </main>
-            
-            {/* ============== تذييل الصفحة (Footer) ============== */}
-            <footer className="bg-slate-800 text-white py-6">
-                <div className="container mx-auto px-4 text-center">
-                    <p>&copy; {new Date().getFullYear()} مدرسة النبي اليتيم. جميع الحقوق محفوظة.</p>
-                </div>
-            </footer>
         </div>
     );
-};
+}
 
 export default Home;
