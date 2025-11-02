@@ -60,7 +60,7 @@ const Login = () => {
               <label className="text-sm font-medium">كود الدخول</label>
               <Input
                 type="text"
-                placeholder="مثال: AD01"
+                placeholder="مثال: BD01"
                 value={code}
                 onChange={(e) => setCode(e.target.value.toUpperCase())}
                 maxLength={4}
@@ -68,7 +68,7 @@ const Login = () => {
                 dir="ltr"
               />
               <p className="text-xs text-muted-foreground text-center">
-                حرفان + رقمان (مثال: QX58، YQ88، <VX85)
+                حرفان + رقمان (مثال: QX56، YQ87، <VX84)
               </p>
             </div>
 
