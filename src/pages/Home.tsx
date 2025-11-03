@@ -1,3 +1,4 @@
+// src/pages/Home.tsx
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
@@ -195,7 +196,6 @@ const Home = () => {
                                     target="_blank" 
                                     className="px-8 py-3 rounded-full bg-[#2e86de] text-white text-lg font-semibold shadow-xl hover:bg-[#2471c4] transition transform hover:scale-105"
                                     rel="noopener noreferrer"
-                                    aria-label="فتح المسار إلى موقع مدرسة النبي اليتيم"
                                 >
                                     اذهب للموقع
                                 </a>
@@ -241,3 +241,4 @@ const Home = () => {
 }
 
 export default Home;
+
